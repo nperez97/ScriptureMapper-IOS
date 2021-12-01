@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CBE3786EA49E68FA995A2600 /* Pods_ScripturesMapped.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD8E6B9A5007AE465710A51 /* Pods_ScripturesMapped.framework */; };
 		FC3013042746AA7A009A5125 /* ScripturesMappedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3013032746AA7A009A5125 /* ScripturesMappedApp.swift */; };
-		FC3013062746AA7A009A5125 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3013052746AA7A009A5125 /* ContentView.swift */; };
+		FC3013062746AA7A009A5125 /* ScripturesMappedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3013052746AA7A009A5125 /* ScripturesMappedView.swift */; };
 		FC3013082746AA7C009A5125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3013072746AA7C009A5125 /* Assets.xcassets */; };
 		FC30130B2746AA7C009A5125 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC30130A2746AA7C009A5125 /* Preview Assets.xcassets */; };
 		FC30131D27572134009A5125 /* GeoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30131127572133009A5125 /* GeoCategory.swift */; };
@@ -24,6 +24,8 @@
 		FC30132627572134009A5125 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30131A27572134009A5125 /* Book.swift */; };
 		FC30132727572134009A5125 /* geocode.js in Resources */ = {isa = PBXBuildFile; fileRef = FC30131B27572134009A5125 /* geocode.js */; };
 		FC30132827572134009A5125 /* GeoPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30131C27572134009A5125 /* GeoPlace.swift */; };
+		FC3013302757310B009A5125 /* VolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30132F2757310B009A5125 /* VolumesView.swift */; };
+		FC301332275732CC009A5125 /* BooksForVolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC301331275732CC009A5125 /* BooksForVolumesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +34,7 @@
 		BDD8E6B9A5007AE465710A51 /* Pods_ScripturesMapped.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScripturesMapped.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3013002746AA7A009A5125 /* ScripturesMapped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScripturesMapped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3013032746AA7A009A5125 /* ScripturesMappedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScripturesMappedApp.swift; sourceTree = "<group>"; };
-		FC3013052746AA7A009A5125 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC3013052746AA7A009A5125 /* ScripturesMappedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScripturesMappedView.swift; sourceTree = "<group>"; };
 		FC3013072746AA7C009A5125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC30130A2746AA7C009A5125 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC30131127572133009A5125 /* GeoCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoCategory.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		FC30131A27572134009A5125 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		FC30131B27572134009A5125 /* geocode.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = geocode.js; sourceTree = "<group>"; };
 		FC30131C27572134009A5125 /* GeoPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPlace.swift; sourceTree = "<group>"; };
+		FC30132F2757310B009A5125 /* VolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesView.swift; sourceTree = "<group>"; };
+		FC301331275732CC009A5125 /* BooksForVolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksForVolumesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,21 +103,11 @@
 		FC3013022746AA7A009A5125 /* ScripturesMapped */ = {
 			isa = PBXGroup;
 			children = (
-				FC3013032746AA7A009A5125 /* ScripturesMappedApp.swift */,
-				FC3013052746AA7A009A5125 /* ContentView.swift */,
-				FC30131A27572134009A5125 /* Book.swift */,
-				FC30131927572134009A5125 /* geo.21.sqlite */,
-				FC30131127572133009A5125 /* GeoCategory.swift */,
-				FC30131B27572134009A5125 /* geocode.js */,
-				FC30131227572133009A5125 /* GeoDatabase.swift */,
-				FC30131C27572134009A5125 /* GeoPlace.swift */,
-				FC30131727572133009A5125 /* GeoPlaceCollector.swift */,
-				FC30131327572133009A5125 /* GeoTag.swift */,
-				FC30131827572133009A5125 /* scripture.css */,
-				FC30131427572133009A5125 /* Scripture.swift */,
-				FC30131527572133009A5125 /* ScriptureRenderer.swift */,
-				FC30131627572133009A5125 /* String+Extensions.swift */,
-				FC3013072746AA7C009A5125 /* Assets.xcassets */,
+				FC30132B27572D94009A5125 /* Model */,
+				FC30132A27572D8D009A5125 /* View */,
+				FC30132927572D81009A5125 /* ViewModel */,
+				FC30132D27572F58009A5125 /* Resources */,
+				FC30132E27572FF8009A5125 /* Utility */,
 				FC3013092746AA7C009A5125 /* Preview Content */,
 			);
 			path = ScripturesMapped;
@@ -125,6 +119,66 @@
 				FC30130A2746AA7C009A5125 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC30132927572D81009A5125 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC30132A27572D8D009A5125 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC3013052746AA7A009A5125 /* ScripturesMappedView.swift */,
+				FC3013032746AA7A009A5125 /* ScripturesMappedApp.swift */,
+				FC30132F2757310B009A5125 /* VolumesView.swift */,
+				FC301331275732CC009A5125 /* BooksForVolumesView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FC30132B27572D94009A5125 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC30131227572133009A5125 /* GeoDatabase.swift */,
+				FC30132C27572DCA009A5125 /* Table */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC30132C27572DCA009A5125 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				FC30131A27572134009A5125 /* Book.swift */,
+				FC30131127572133009A5125 /* GeoCategory.swift */,
+				FC30131C27572134009A5125 /* GeoPlace.swift */,
+				FC30131327572133009A5125 /* GeoTag.swift */,
+				FC30131427572133009A5125 /* Scripture.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		FC30132D27572F58009A5125 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC3013072746AA7C009A5125 /* Assets.xcassets */,
+				FC30131927572134009A5125 /* geo.21.sqlite */,
+				FC30131B27572134009A5125 /* geocode.js */,
+				FC30131827572133009A5125 /* scripture.css */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FC30132E27572FF8009A5125 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FC30131727572133009A5125 /* GeoPlaceCollector.swift */,
+				FC30131527572133009A5125 /* ScriptureRenderer.swift */,
+				FC30131627572133009A5125 /* String+Extensions.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC30131E27572134009A5125 /* GeoDatabase.swift in Sources */,
-				FC3013062746AA7A009A5125 /* ContentView.swift in Sources */,
+				FC3013062746AA7A009A5125 /* ScripturesMappedView.swift in Sources */,
 				FC30131D27572134009A5125 /* GeoCategory.swift in Sources */,
 				FC30132127572134009A5125 /* ScriptureRenderer.swift in Sources */,
 				FC30132227572134009A5125 /* String+Extensions.swift in Sources */,
@@ -254,7 +308,9 @@
 				FC30132027572134009A5125 /* Scripture.swift in Sources */,
 				FC30132627572134009A5125 /* Book.swift in Sources */,
 				FC30132327572134009A5125 /* GeoPlaceCollector.swift in Sources */,
+				FC3013302757310B009A5125 /* VolumesView.swift in Sources */,
 				FC30132827572134009A5125 /* GeoPlace.swift in Sources */,
+				FC301332275732CC009A5125 /* BooksForVolumesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
