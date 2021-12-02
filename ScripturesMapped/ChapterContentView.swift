@@ -11,21 +11,32 @@ struct ChapterContentView: View {
     var book: Book
     var chapter: Int
     
-    private var html: String
-    
-    init(book: Book, chapter: Int) {
-        self.book = book
-        self.chapter = chapter
-        html = ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
+    private var html: String {
+        ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
     }
     
     var body: some View {
         WebView(html: html, request: nil)
+            .navigationBarTitle(title())
+            .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func title() -> String {
+        if chapter > 0 {
+            return "\(book.fullName) \(chapter)"
+        } else {
+            return book.fullName
+        }
     }
 }
 
-//struct ChapterContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ChapterContentView()
-//    }
-//}
+struct ChapterContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView{
+            ChapterContentView(
+                book: GeoDatabase.shared.bookForId(201),
+                chapter: 0
+            )
+        }
+    }
+}
