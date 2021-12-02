@@ -8,7 +8,8 @@
 import Foundation
 
 class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
-    var geoPlaces = [GeoPlace]()
+    
+    @Published var geoPlaces = [GeoPlace]()
     
     init() {
         ScriptureRenderer.shared.injectGeoPlaceCollector(self)
@@ -26,3 +27,5 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
     }
     
 }
+
+// SEE VIDEO FOR PSEUDO CODE -- 2:17 mark -- Place pins on map

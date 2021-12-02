@@ -20,7 +20,7 @@ struct ChapterGridView: View {
                       spacing: 8) {
                 ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
                     NavigationLink("\(chapter)") {
-                        ChapterContentView(viewModel: GeoCodeViewModel(), book: book, chapter: chapter)
+                        ChapterContentView(book: book, chapter: chapter)
                     }
                     .isDetailLink(false)
                 }

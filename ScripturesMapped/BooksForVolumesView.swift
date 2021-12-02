@@ -19,7 +19,7 @@ struct BooksForVolumesView: View {
                         ChapterGridView(book: book)
                     }
                     else {
-                        ChapterContentView(viewModel: GeoCodeViewModel(), book: book, chapter: book.numChapters == nil ? 0 : 1) // e.g. Enos, WoM. Goes straight to text
+                        ChapterContentView(book: book, chapter: book.numChapters == nil ? 0 : 1) // e.g. Enos, WoM. Goes straight to text
                     }
                 }
                 .isDetailLink(false)

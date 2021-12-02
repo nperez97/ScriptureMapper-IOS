@@ -8,8 +8,9 @@
 
 import Foundation
 import GRDB
+import CoreLocation
 
-struct GeoPlace : TableRecord, FetchableRecord {
+struct GeoPlace : TableRecord, FetchableRecord, Identifiable {
 
     // MARK: - Constants
 
@@ -91,5 +92,11 @@ struct GeoPlace : TableRecord, FetchableRecord {
         }
 
         return nil
+    }
+}
+
+extension GeoPlace {
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
