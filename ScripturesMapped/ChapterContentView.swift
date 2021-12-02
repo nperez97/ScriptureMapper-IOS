@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChapterContentView: View {
+    
+    var viewModel: GeoCodeViewModel
     var book: Book
     var chapter: Int
     
@@ -34,6 +36,7 @@ struct ChapterContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ChapterContentView(
+                viewModel: GeoCodeViewModel(),
                 book: GeoDatabase.shared.bookForId(201),
                 chapter: 0
             )
