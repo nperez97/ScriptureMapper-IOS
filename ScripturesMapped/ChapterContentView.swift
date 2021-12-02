@@ -18,6 +18,10 @@ struct ChapterContentView: View {
     
     var body: some View {
         WebView(html: html, request: nil)
+            .injectNavigationHandler { geoPlaceId in
+                //TODO: Display Map
+                print("User Selected \(geoPlaceId)")
+            }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
     }
