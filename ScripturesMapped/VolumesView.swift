@@ -10,11 +10,16 @@ import SwiftUI
 struct VolumesView: View {
     var body: some View {
         List {
+            let volumes = GeoDatabase.shared.volumes()
+            
             //TODO: go back and write code to query.
-            ForEach(GeoDatabase.shared.volumes(), id: \.self){
-                Text($0)
+            ForEach(volumes.indices) { index in
+                NavigationLink(volumes[index], destination: {
+                    BooksForVolumesView(volumeId: index + 1, volumeName: volumes[index])
+                })
             }
         }
+        .navigationBarTitle("The Scriptures")
     }
 }
 

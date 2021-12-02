@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct BooksForVolumesView: View {
+    var volumeId: Int
+    var volumeName: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach (GeoDatabase.shared.booksForParentId(volumeId)) { book in
+                Text(book.fullName)
+            }
+        }
+        .navigationBarTitle(volumeName)
     }
 }
 
 struct BooksForVolumesView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksForVolumesView()
+        BooksForVolumesView(volumeId: 1, volumeName: "Old Testament")
     }
 }
