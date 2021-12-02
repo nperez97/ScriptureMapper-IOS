@@ -26,6 +26,8 @@
 		FC30132827572134009A5125 /* GeoPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30131C27572134009A5125 /* GeoPlace.swift */; };
 		FC3013302757310B009A5125 /* VolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30132F2757310B009A5125 /* VolumesView.swift */; };
 		FC301332275732CC009A5125 /* BooksForVolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC301331275732CC009A5125 /* BooksForVolumesView.swift */; };
+		FC30133427586E76009A5125 /* ChapterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30133327586E76009A5125 /* ChapterGridView.swift */; };
+		FC301336275871C1009A5125 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC301335275871C1009A5125 /* ChapterContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		FC30131C27572134009A5125 /* GeoPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPlace.swift; sourceTree = "<group>"; };
 		FC30132F2757310B009A5125 /* VolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesView.swift; sourceTree = "<group>"; };
 		FC301331275732CC009A5125 /* BooksForVolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksForVolumesView.swift; sourceTree = "<group>"; };
+		FC30133327586E76009A5125 /* ChapterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterGridView.swift; sourceTree = "<group>"; };
+		FC301335275871C1009A5125 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				FC3013032746AA7A009A5125 /* ScripturesMappedApp.swift */,
 				FC30132F2757310B009A5125 /* VolumesView.swift */,
 				FC301331275732CC009A5125 /* BooksForVolumesView.swift */,
+				FC30133327586E76009A5125 /* ChapterGridView.swift */,
+				FC301335275871C1009A5125 /* ChapterContentView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC30131E27572134009A5125 /* GeoDatabase.swift in Sources */,
+				FC301336275871C1009A5125 /* ChapterContentView.swift in Sources */,
 				FC3013062746AA7A009A5125 /* ScripturesMappedView.swift in Sources */,
 				FC30131D27572134009A5125 /* GeoCategory.swift in Sources */,
 				FC30132127572134009A5125 /* ScriptureRenderer.swift in Sources */,
+				FC30133427586E76009A5125 /* ChapterGridView.swift in Sources */,
 				FC30132227572134009A5125 /* String+Extensions.swift in Sources */,
 				FC30131F27572134009A5125 /* GeoTag.swift in Sources */,
 				FC3013042746AA7A009A5125 /* ScripturesMappedApp.swift in Sources */,

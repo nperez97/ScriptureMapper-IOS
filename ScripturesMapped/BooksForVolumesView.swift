@@ -14,9 +14,18 @@ struct BooksForVolumesView: View {
     var body: some View {
         List {
             ForEach (GeoDatabase.shared.booksForParentId(volumeId)) { book in
-                Text(book.fullName)
+                NavigationLink(book.fullName) {
+                    if let numChapters = book.numChapters, numChapters > 1 {
+                        ChapterGridView(book: book)
+                    }
+                    else {
+                        ChapterContentView() // e.g. Enos, WoM. Goes straight to text
+                    }
+                }
+                .isDetailLink(false)
             }
         }
+        .listStyle(.plain)
         .navigationBarTitle(volumeName)
     }
 }
