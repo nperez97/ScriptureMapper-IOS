@@ -18,6 +18,9 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
         if let places = places {
             // TODO: only copy over the unique geoplaces
+            
+            
+            
             geoPlaces = places
             
             geoPlaces.forEach{ place in

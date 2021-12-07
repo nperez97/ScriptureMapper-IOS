@@ -16,6 +16,7 @@ struct ScripturesMappedView: View {
         center: CLLocationCoordinate2D(latitude: 31.778389,
                                        longitude: 35.234736),
         span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
+    
     var body: some View {
         NavigationView{
             VolumesView()

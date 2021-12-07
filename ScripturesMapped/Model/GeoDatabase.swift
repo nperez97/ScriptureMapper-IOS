@@ -181,7 +181,28 @@ class GeoDatabase {
     //
     func volumes() -> [String] {
         // NEEDSWORK: get this from the database -- don't hard-code anything
-        return ["Old Testament", "New Testament", "Book of Mormon",
-                "Doctrine and Covenants", "Pearl of Great Price"]
+        
+        do {
+            let volumes = try dbQueue.inDatabase { (db: Database) -> [String] in
+                var volumes = [String]()
+
+                for row in try Row.fetchAll(db,
+                                            sql: """
+                                                 select * from \(Book.databaseTableName) limit 5
+                                                 """)
+                                            { volumes.append(row["FullName"]) }
+
+                return volumes
+            }
+
+            return volumes
+        } catch {
+            return []
+        }
+        
+        
+        
+//        return ["Old Testament", "New Testament", "Book of Mormon",
+//                "Doctrine and Covenants", "Pearl of Great Price"]
     }
 }

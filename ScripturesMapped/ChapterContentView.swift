@@ -12,8 +12,13 @@ struct ChapterContentView: View {
     var book: Book
     var chapter: Int
     
-    private var html: String {
-        ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
+    private var html: String 
+    
+    init(book: Book, chapter: Int) {
+        self.book = book
+        self.chapter = chapter
+        
+        html = ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
     }
     
     var body: some View {
