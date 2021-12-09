@@ -46,7 +46,7 @@ struct ChapterContentView: View {
             )
             .onAppear {
                 viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
-                //TODO: set region
+                viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
             }
             .sheet(isPresented: $showMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
@@ -55,7 +55,6 @@ struct ChapterContentView: View {
                     .onAppear {
                         viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
                     }
-                // TO DO: push map to the bottom of the screen
                     .edgesIgnoringSafeArea(.bottom)
             }
     }

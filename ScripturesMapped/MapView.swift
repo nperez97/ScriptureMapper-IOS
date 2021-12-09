@@ -16,8 +16,7 @@ struct MapView: View {
         Map(coordinateRegion: $region, annotationItems: viewModel.geoPlaces) { geoPlace in
             MapAnnotation(coordinate: geoPlace.coordinate, anchorPoint: CGPoint(x: 0.5, y: 1)) {
                 Image(systemName: "mappin.circle.fill")
-                    .foregroundColor(.black)
-                    //.foregroundColor(Color(red: 0.7, green: 0.1, blue: 0.1))
+                    .foregroundColor(Color(red: 0.7, green: 0.1, blue: 0.1))
                     //.shadow(radius: 2, x: 1, y: 1)
                 Text("\(geoPlace.placename)")
                     .background(.white)
