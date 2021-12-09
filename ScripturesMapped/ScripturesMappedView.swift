@@ -35,7 +35,8 @@ struct ScripturesMappedView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ScripturesMappedView()
+        ScripturesMappedView().environmentObject(GeoCodeViewModel())
     }
 }

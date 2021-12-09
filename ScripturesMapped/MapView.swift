@@ -26,7 +26,7 @@ struct MapView: View {
                         .background(.white)
             }
         }
-        // Testing
+        // TODO: - Finish making this work
         .edgesIgnoringSafeArea(.all)
         .onChange(of: horizontalSizeClass) { newSizeClass in
             viewModel.isDetailViewVisible = newSizeClass == .regular

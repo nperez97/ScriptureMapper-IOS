@@ -46,17 +46,6 @@ struct ChapterContentView: View {
                     }
                 }
             }
-//            .navigationBarItems(trailing:
-//                Group {
-//                    if !viewModel.isDetailViewVisible {
-//                        Button(action: {
-//                            showMap = true
-//                        }, label: {
-//                            Image(systemName: "map")
-//                        })
-//                    }
-//                }
-//            )
             .onAppear {
                 viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
                 viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
@@ -83,11 +72,11 @@ struct ChapterContentView: View {
 
 struct ChapterContentView_Previews: PreviewProvider {
     static var previews: some View {
-        //NavigationView{
+        NavigationView{
             ChapterContentView(
                 book: GeoDatabase.shared.bookForId(106),
                 chapter: 10
-            )
-        //}
+            ).environmentObject(GeoCodeViewModel())
+        }
     }
 }
