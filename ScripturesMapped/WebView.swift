@@ -16,6 +16,7 @@ struct WebView: UIViewRepresentable {
     
     private let coordinator = Coordinator()
     
+    // int is our geoplace id. escaping lets compiler know it needs longer life
     func injectNavigationHandler(_ handler: @escaping (Int) -> Void) -> some View {
         coordinator.navigationHandler = handler
         

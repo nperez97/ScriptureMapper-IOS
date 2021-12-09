@@ -63,6 +63,18 @@ class ScriptureRenderer {
 
     // MARK: - Helpers
 
+    func geoPlaces(for book: Book, chapter: Int) -> [GeoPlace] {
+        var geoPlaces = [GeoPlace]()
+        
+        for scripture in GeoDatabase.shared.versesForScriptureBookId(book.id, chapter) {
+            for (geoplace, _) in GeoDatabase.shared.geoTagsForScriptureId(scripture.id) {
+                geoPlaces.append(geoplace)
+            }
+        }
+        
+        return geoPlaces
+    }
+    
     func htmlForBookId(_ bookId: Int, chapter: Int) -> String {
         let book = GeoDatabase.shared.bookForId(bookId)
 

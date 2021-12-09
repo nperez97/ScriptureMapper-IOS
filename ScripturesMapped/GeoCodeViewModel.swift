@@ -12,7 +12,7 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     
     init() {
-        ScriptureRenderer.shared.injectGeoPlaceCollector(self)
+        //ScriptureRenderer.shared.injectGeoPlaceCollector(self)
     }
     
     func setGeocodedPlaces(_ places: [GeoPlace]?) {

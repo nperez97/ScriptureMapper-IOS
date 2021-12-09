@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChapterContentView: View {
     
+    @EnvironmentObject var viewModel: GeoCodeViewModel
+    
     var book: Book
     var chapter: Int
     
@@ -29,6 +31,9 @@ struct ChapterContentView: View {
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
+            }
     }
     
     private func title() -> String {

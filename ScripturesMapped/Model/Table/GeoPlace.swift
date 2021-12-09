@@ -54,7 +54,7 @@ struct GeoPlace : TableRecord, FetchableRecord, Identifiable {
     var viewLongitude: Double?
     var viewTilt: Double?
     var viewRoll: Double?
-    var viewAltitude: Double?
+    var viewAltitude: Double? // need this one from vhte view. use this for delta
     var viewHeading: Double?
     var category: GeoCategory.Category?
 
