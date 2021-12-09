@@ -10,7 +10,7 @@ import SwiftUI
 struct ChapterContentView: View {
     
     @EnvironmentObject var viewModel: GeoCodeViewModel
-    @State private var showMap = false
+    @State private var displayModalMap = false
     
     var book: Book
     var chapter: Int
@@ -26,7 +26,7 @@ struct ChapterContentView: View {
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
-                showMap = true
+                displayModalMap = true
                 print("User Selected \(geoPlaceId)")
                 viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
                 viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
@@ -38,7 +38,7 @@ struct ChapterContentView: View {
                     Group {
                         if !viewModel.isDetailViewVisible {
                             Button(action: {
-                                showMap = true
+                                displayModalMap = true
                             }, label: {
                                 Image(systemName: "map")
                             })
@@ -61,9 +61,9 @@ struct ChapterContentView: View {
                 viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
                 viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
             }
-            .sheet(isPresented: $showMap) {
+            .sheet(isPresented: $displayModalMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
-                    showMap = false
+                    displayModalMap = false
                 })
                     .onAppear {
                         viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
