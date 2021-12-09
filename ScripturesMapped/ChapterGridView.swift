@@ -11,7 +11,6 @@ struct ChapterGridView: View {
     var book: Book
     
     var body: some View {
-        //TODO: -- Use geometry reader
         ScrollView {
             LazyVGrid(columns: Array(
                                     repeating: GridItem(.flexible(), spacing: 8),
@@ -36,11 +35,3 @@ struct ChapterGridView: View {
         .navigationTitle("\(book.fullName)")
     }
 }
-
-//struct ChapterGridView_Previews: PreviewProvider {
-//    var book: Book
-//
-//    static var previews: some View {
-//        ChapterGridView(book: book)
-//    }
-//}
