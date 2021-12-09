@@ -17,7 +17,7 @@ struct MapOpenView: View {
     var body: some View {
         NavigationView {
             MapView(region: viewModel.region)
-                .navigationBarTitle("\(bookName) \(chapter)")
+                .navigationTitle("\(bookName) \(chapter)")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {

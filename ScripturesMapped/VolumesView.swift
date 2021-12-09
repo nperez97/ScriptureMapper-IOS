@@ -20,7 +20,7 @@ struct VolumesView: View {
             }
         }
         .listStyle(.plain)
-        .navigationBarTitle("The Scriptures")
+        .navigationTitle("The Scriptures")
     }
 }
 

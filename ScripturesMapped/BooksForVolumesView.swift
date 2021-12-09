@@ -26,7 +26,7 @@ struct BooksForVolumesView: View {
             }
         }
         .listStyle(.plain)
-        .navigationBarTitle(volumeName)
+        .navigationTitle(volumeName)
     }
 }
 

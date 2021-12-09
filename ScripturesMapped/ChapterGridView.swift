@@ -26,11 +26,14 @@ struct ChapterGridView: View {
                 }
             }
         }
+        .navigationTitle("\(book.fullName)")
     }
 }
 
 //struct ChapterGridView_Previews: PreviewProvider {
+//    var book: Book
+//
 //    static var previews: some View {
-//        ChapterGridView(book: "Old")
+//        ChapterGridView(book: book)
 //    }
 //}

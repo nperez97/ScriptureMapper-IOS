@@ -31,7 +31,7 @@ struct ChapterContentView: View {
                 viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
                 viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
             }
-            .navigationBarTitle(title())
+            .navigationTitle(title())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
