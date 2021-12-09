@@ -33,17 +33,30 @@ struct ChapterContentView: View {
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing:
-                Group {
-                    if !viewModel.isDetailViewVisible {
-                        Button(action: {
-                            showMap = true
-                        }, label: {
-                            Image(systemName: "map")
-                        })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Group {
+                        if !viewModel.isDetailViewVisible {
+                            Button(action: {
+                                showMap = true
+                            }, label: {
+                                Image(systemName: "map")
+                            })
+                        }
                     }
                 }
-            )
+            }
+//            .navigationBarItems(trailing:
+//                Group {
+//                    if !viewModel.isDetailViewVisible {
+//                        Button(action: {
+//                            showMap = true
+//                        }, label: {
+//                            Image(systemName: "map")
+//                        })
+//                    }
+//                }
+//            )
             .onAppear {
                 viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
                 viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
