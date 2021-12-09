@@ -55,7 +55,7 @@ struct ChapterContentView: View {
                     .onAppear {
                         viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
                     }
-                    .edgesIgnoringSafeArea(.bottom)
+                    .edgesIgnoringSafeArea(.all)
             }
     }
     

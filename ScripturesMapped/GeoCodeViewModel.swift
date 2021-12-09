@@ -25,13 +25,13 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
         
         
         if let places = places {
-            // TODO: only copy over the unique geoplaces
+            
             geoPlaces = places
         }
         
         geoPlaces.forEach{ place in
             
-            //compare latitdues and longititude. check if two pins are super close to each other
+            //compare latitudes and longitudes. check if two pins are super close to each other
             if let index = newPlaces.firstIndex(where: { abs($0.latitude - place.latitude) < delta && abs($0.longitude - place.longitude) < delta }) {
                 // if place already added, then add new name
                 if !newPlaces[index].placename.contains(place.placename) {
@@ -87,4 +87,3 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
     
 }
 
-// SEE VIDEO FOR PSEUDO CODE -- 2:17 mark -- Place pins on map

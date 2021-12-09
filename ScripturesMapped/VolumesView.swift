@@ -12,7 +12,6 @@ struct VolumesView: View {
         List {
             let volumes = GeoDatabase.shared.volumes()
             
-            //TODO: go back and write code to query.
             ForEach(volumes.indices) { index in
                 NavigationLink(volumes[index], destination: {
                     BooksForVolumesView(volumeId: index + 1, volumeName: volumes[index])
