@@ -35,19 +35,6 @@ struct MapOpenView: View {
                         })
                     }
                 }
-            
-            
-            
-            
-//                .navigationBarItems(leading: Button(action: {
-//                    onDismiss()
-//                }, label: {
-//                    Text("Close")
-//                }), trailing: Button(action: {
-//                    viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
-//                }, label: {
-//                    Image(systemName: "arrow.triangle.2.circlepath")
-//                }))
         }
     }
 }
