@@ -51,13 +51,16 @@ struct ChapterContentView: View {
                 viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
             }
             .sheet(isPresented: $displayModalMap) {
-                MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
-                    displayModalMap = false
-                })
-                    .onAppear {
-                        viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
+                MapOpenView(bookName: book.fullName,
+                    chapter: chapter,
+                    onDismiss: {
+                        displayModalMap = false
                     }
-                    .edgesIgnoringSafeArea(.all)
+                )
+                .onAppear {
+                    viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
+                }
+                .edgesIgnoringSafeArea(.all)
             }
     }
     
