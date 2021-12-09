@@ -10,10 +10,10 @@ import SwiftUI
 struct ChapterContentView: View {
     
     @EnvironmentObject var viewModel: GeoCodeViewModel
+    @State private var showMap = false
     
     var book: Book
     var chapter: Int
-    
     private var html: String 
     
     init(book: Book, chapter: Int) {
@@ -26,13 +26,37 @@ struct ChapterContentView: View {
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
-                //TODO: Display Map
+                showMap = true
                 print("User Selected \(geoPlaceId)")
+                viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
+                viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing:
+                Group {
+                    if !viewModel.isDetailViewVisible {
+                        Button(action: {
+                            showMap = true
+                        }, label: {
+                            Image(systemName: "map")
+                        })
+                    }
+                }
+            )
             .onAppear {
                 viewModel.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
+                //TODO: set region
+            }
+            .sheet(isPresented: $showMap) {
+                MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
+                    showMap = false
+                })
+                    .onAppear {
+                        viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
+                    }
+                // TO DO: push map to the bottom of the screen
+                    .edgesIgnoringSafeArea(.bottom)
             }
     }
     
@@ -47,11 +71,11 @@ struct ChapterContentView: View {
 
 struct ChapterContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        //NavigationView{
             ChapterContentView(
-                book: GeoDatabase.shared.bookForId(201),
-                chapter: 0
+                book: GeoDatabase.shared.bookForId(106),
+                chapter: 10
             )
-        }
+        //}
     }
 }
