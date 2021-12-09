@@ -19,15 +19,35 @@ struct MapOpenView: View {
             MapView(region: viewModel.region)
                 .navigationBarTitle("\(bookName) \(chapter)")
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    onDismiss()
-                }, label: {
-                    Text("Close")
-                }), trailing: Button(action: {
-                    viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
-                }, label: {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                }))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            onDismiss()
+                        }, label: {
+                            Text("Close")
+                        })
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
+                        }, label: {
+                            Image(systemName: "arrow.triangle.2.circlepath")
+                        })
+                    }
+                }
+            
+            
+            
+            
+//                .navigationBarItems(leading: Button(action: {
+//                    onDismiss()
+//                }, label: {
+//                    Text("Close")
+//                }), trailing: Button(action: {
+//                    viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
+//                }, label: {
+//                    Image(systemName: "arrow.triangle.2.circlepath")
+//                }))
         }
     }
 }
