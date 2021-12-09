@@ -54,32 +54,46 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
     }
     
     func setRegion(geoPlaces: [GeoPlace]) {
+        if geoPlaces.count == 0 {
+            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
+            
+            print(region)
+            
+            return
+        }
+        
+        
         let maxLng = (geoPlaces.max { $0.longitude < $1.longitude })?.longitude ?? 0
         let maxLat = (geoPlaces.max { $0.latitude < $1.latitude })?.latitude ?? 0
         let minLng = (geoPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
         let minLat = (geoPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
         
-        var longDelta: Double {
-            if geoPlaces.count == 1 {
-                return (geoPlaces[0].viewAltitude ?? 5000) / 50000
-            }
-            else if geoPlaces.count > 1 {
-                return (geoPlaces[0].viewAltitude ?? 5000) / 1250
+        var spanLong: Double {
+            if geoPlaces.count < 2 {
+                return 0.2
             }
             else {
-                return 3
+                return abs(maxLng - minLng) * margin
+            }
+        }
+                
+        var spanLat: Double {
+            if geoPlaces.count < 2 {
+                return 0.2
+            }
+            else {
+                return abs(maxLat - minLat) * margin
             }
         }
         
-        print(minLat, maxLat)
-        print(minLng, maxLng)
         
         let centerLong = (maxLng - minLng) / 2 + minLng
         let centerLat = (maxLat - minLat) / 2 + minLat
+        let margin = 1.1
         
         print(centerLat, centerLong)
         
-        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
         
         print(region)
     }
