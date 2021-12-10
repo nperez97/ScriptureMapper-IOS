@@ -12,27 +12,27 @@ struct ChapterGridView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: Array(
-                repeating: GridItem(.flexible(), spacing: ChapterConstants.spacing),
-                count: ChapterConstants.count
-                                ),
-                      spacing: ChapterConstants.spacing) {
-                            ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: ChapterConstants.cornerRadius)
-                                        .foregroundColor(.brown)
-                                        .shadow(radius: ChapterConstants.radius, x: 1, y: 1)
-                                    NavigationLink("\(chapter)") {
-                                        ChapterContentView(book: book, chapter: chapter)
-                                    }
-                                    .isDetailLink(false)
-                                    .padding(.vertical, ChapterConstants.verticalPadding)
-                                    .foregroundColor(.black)
-                                }
-                            }
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible(), spacing: ChapterConstants.spacing), count: ChapterConstants.count),
+                spacing: ChapterConstants.spacing
+            ){
+                ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
+                    ZStack{
+                        RoundedRectangle(cornerRadius: ChapterConstants.cornerRadius)
+                            .foregroundColor(.brown)
+                            .shadow(radius: ChapterConstants.radius, x: 1, y: 1)
+                        NavigationLink("\(chapter)") {
+                            ChapterContentView(book: book, chapter: chapter)
+                        }
+                        .isDetailLink(false)
+                        .padding(.vertical, ChapterConstants.verticalPadding)
+                        .foregroundColor(.black)
                     }
+                }
+             }
         }
         .navigationTitle("\(book.fullName)")
+        .padding(.horizontal, ChapterConstants.horizontalPadding)
     }
     
     // MARK: - Constants
@@ -42,5 +42,6 @@ struct ChapterGridView: View {
         static let cornerRadius: CGFloat = 6
         static let radius: CGFloat = 2
         static let verticalPadding: CGFloat = 10
+        static let horizontalPadding: CGFloat = 4
     }
 }
