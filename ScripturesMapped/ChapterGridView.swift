@@ -13,25 +13,34 @@ struct ChapterGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Array(
-                                    repeating: GridItem(.flexible(), spacing: 8),
-                                    count: 5
+                repeating: GridItem(.flexible(), spacing: ChapterConstants.spacing),
+                count: ChapterConstants.count
                                 ),
-                      spacing: 8) {
+                      spacing: ChapterConstants.spacing) {
                             ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
                                 ZStack{
-                                    RoundedRectangle(cornerRadius: 6)
+                                    RoundedRectangle(cornerRadius: ChapterConstants.cornerRadius)
                                         .foregroundColor(.brown)
-                                        .shadow(radius: 2, x: 1, y: 1)
+                                        .shadow(radius: ChapterConstants.radius, x: 1, y: 1)
                                     NavigationLink("\(chapter)") {
                                         ChapterContentView(book: book, chapter: chapter)
                                     }
                                     .isDetailLink(false)
-                                    .padding(.vertical, 10)
+                                    .padding(.vertical, ChapterConstants.verticalPadding)
                                     .foregroundColor(.black)
                                 }
                             }
                     }
         }
         .navigationTitle("\(book.fullName)")
+    }
+    
+    // MARK: - Constants
+    private struct ChapterConstants {
+        static let spacing: CGFloat = 8
+        static let count: Int = 5
+        static let cornerRadius: CGFloat = 6
+        static let radius: CGFloat = 2
+        static let verticalPadding: CGFloat = 10
     }
 }
