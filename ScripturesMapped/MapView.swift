@@ -34,16 +34,13 @@ struct MapView: View {
                         .background(.white)
             }
         }
-        // TODO: - Finish making this work
         .edgesIgnoringSafeArea(.all)
         .onChange(of: horizontalSizeClass) { newSizeClass in
             viewModel.isDetailViewVisible = newSizeClass == .regular
-            print("Ipad or max?: \(viewModel.isDetailViewVisible)")
         }
         .onAppear {
             // checks if ipad or max phone. if so, true
             viewModel.isDetailViewVisible = horizontalSizeClass == .regular
-            print("Detail view Visible \(viewModel.isDetailViewVisible)")
         }
     }
     
