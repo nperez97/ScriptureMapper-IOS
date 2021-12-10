@@ -26,16 +26,26 @@ struct ChapterContentView: View {
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
-                displayModalMap = true
+                
+                if !viewModel.isDetailViewVisible {
+                    displayModalMap = true
+                }
+                
                 print("User Selected \(geoPlaceId)")
                 viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
-                viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
+                withAnimation{
+                    viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
+                }
+                
             }
+        
+        
             .navigationTitle(title())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Group {
+                        // shows map button if on non max iphone
                         if !viewModel.isDetailViewVisible {
                             Button(action: {
                                 displayModalMap = true
