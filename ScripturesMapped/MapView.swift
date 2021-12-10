@@ -13,8 +13,9 @@ struct MapView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State var region: MKCoordinateRegion
     
+    //region if compact //viewmodel.region if not
     var body: some View {
-        Map(coordinateRegion: $viewModel.region,
+        Map(coordinateRegion: viewModel.isDetailViewVisible ? $viewModel.region : $region,
             annotationItems: viewModel.geoPlaces) { geoPlace in
                 MapAnnotation(
                     coordinate: geoPlace.coordinate,

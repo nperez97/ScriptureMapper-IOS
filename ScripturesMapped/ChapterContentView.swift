@@ -28,14 +28,12 @@ struct ChapterContentView: View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
                 
-                
-                
-                print("User Selected \(geoPlaceId)")
                 viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
+                print("User Selected \(geoPlaceId)")
                 withAnimation{
                     viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
                 }
-                
+        
                 if !viewModel.isDetailViewVisible {
                     displayModalMap = true
                 } 
@@ -45,7 +43,7 @@ struct ChapterContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Group {
-                        // shows map button if on non max iphone
+                        // shows map button if on normal phone
                         if !viewModel.isDetailViewVisible {
                             Button(action: {
                                 displayModalMap = true
