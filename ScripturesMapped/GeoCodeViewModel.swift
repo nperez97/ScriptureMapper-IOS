@@ -91,11 +91,11 @@ class GeoCodeViewModel: ObservableObject, GeoPlaceCollector {
         let centerLat = (maxLat - minLat) / 2 + minLat
         let margin = 1.1
         
-        print(centerLat, centerLong)
+        //print(centerLat, centerLong)
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
         
-        print(region)
+        //print(region)
     }
     
     

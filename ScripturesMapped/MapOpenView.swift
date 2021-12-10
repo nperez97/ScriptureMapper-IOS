@@ -27,13 +27,6 @@ struct MapOpenView: View {
                             Text("Close")
                         })
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            viewModel.setRegion(geoPlaces: viewModel.geoPlaces)
-                        }, label: {
-                            Image(systemName: "arrow.triangle.2.circlepath")
-                        })
-                    }
                 }
         }
     }

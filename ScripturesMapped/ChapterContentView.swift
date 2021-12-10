@@ -10,6 +10,7 @@ import SwiftUI
 struct ChapterContentView: View {
     
     @EnvironmentObject var viewModel: GeoCodeViewModel
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var displayModalMap = false
     
     var book: Book
@@ -27,9 +28,7 @@ struct ChapterContentView: View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
                 
-                if !viewModel.isDetailViewVisible {
-                    displayModalMap = true
-                }
+                
                 
                 print("User Selected \(geoPlaceId)")
                 viewModel.setCurrentGeoPlace(placeId: geoPlaceId)
@@ -37,9 +36,10 @@ struct ChapterContentView: View {
                     viewModel.setRegion(geoPlaces: viewModel.currentGeoPlaces)
                 }
                 
+                if !viewModel.isDetailViewVisible {
+                    displayModalMap = true
+                } 
             }
-        
-        
             .navigationTitle(title())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -72,6 +72,7 @@ struct ChapterContentView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
             }
+
     }
     
     private func title() -> String {
